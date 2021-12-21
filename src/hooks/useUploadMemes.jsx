@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { useAuthContext } from "../contexts/AuthContext";
-import {db, storage} from '../firebase'
-import { collection, addDoc } from 'firebase/firestore'
-import { ref, getDownloadURL, uploadBytesResumable } from 'firebase/storage'
+import { db, storage } from "../firebase";
+import { collection, addDoc } from "firebase/firestore";
+import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 
 const useUploadMemes = () => {
 	const [error, setError] = useState(null);
@@ -28,7 +28,6 @@ const useUploadMemes = () => {
 			return;
 		}
 
-		
 		//constract file name to save image as
 		const storageFilename = Date.now() + "-" + image.name;
 
@@ -36,17 +35,34 @@ const useUploadMemes = () => {
 		const storageFullpath = `memes/${currentUser.uid}/${storageFilename}`;
 		console.log(`storage_fullpath`, storageFullpath);
 
-        //create a referenc in storage to upload image to
-        const storageRef = ref(storage, storageFullpath)
+		try {
+			//create a referenc in storage to upload image to
+			const storageRef = ref(storage, storageFullpath);
 
-        // start upload image 
-		const uploadTask = uploadBytesResumable(storageRef, image)
+			// start upload image
+			const uploadTask = uploadBytesResumable(storageRef, image);
 
-        // attach upload observer
-        uploadTask.on('state_changed', (uploadTaskSnapshot) => {
-            //update progress
-            setUploadProgress(Math.round((uploadTaskSnapshot.bytesTransferred / uploadTaskSnapshot.totalBytes) * 1000) / 10)
-        }, (error) => {}, () => {})
+			// attach upload observer
+			uploadTask.on("state_changed", (uploadTaskSnapshot) => {
+				//update progress
+				setUploadProgress(
+					Math.round(
+						(uploadTaskSnapshot.bytesTransferred /
+							uploadTaskSnapshot.totalBytes) *
+							1000
+					) / 10
+				);
+			});
+			//when upload is completed
+			await uploadTask.then();
+
+			
+		} catch (e) {
+			setError(e.message);
+			setIsError(true);
+			setIsMutating(false);
+			setIsSuccess(false);
+		}
 	};
 	return { error, isError, isMutating, isSuccess, progress, mutate };
 };
