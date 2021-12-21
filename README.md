@@ -2,10 +2,10 @@
 
 ## Funktioner
 
-- Se alla uppladdade memes (inkl. mina egna)
+- ✔ Se alla uppladdade memes (inkl. mina egna)
+- ✔ Skapa konto
+- ✔ Ladda upp memes
 - Se enskild meme i en lightbox
-- Skapa konto
-- Ladda upp memes
 - Se mina uppladdade memes
 - Ta bort egna memes
 

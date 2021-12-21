@@ -1,20 +1,18 @@
-import React from 'react'
-import Container from 'react-bootstrap/Container'
-import { useAuthContext } from '../contexts/AuthContext'
+import React from "react";
+import Container from "react-bootstrap/Container";
+import ImageGrid from "../components/ImageGrid";
+
+import useMemes from "../hooks/useMemes";
 
 const HomePage = () => {
-	const { currentUser } = useAuthContext()
+	const memesQuery = useMemes();
 
 	return (
 		<Container className="py-3">
-			<h1>Welcome!</h1>
-			{
-				currentUser
-					? <p>You are logged in as {currentUser.email} 🥳!</p>
-					: <p>Anomymous haxxer</p>
-			}
+			<h1>Memes</h1>
+			<ImageGrid query={memesQuery} />
 		</Container>
-	)
-}
+	);
+};
 
-export default HomePage
+export default HomePage;
