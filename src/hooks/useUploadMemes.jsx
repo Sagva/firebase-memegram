@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useAuthContext } from "../contexts/AuthContext";
 import { db, storage } from "../firebase";
-import { collection, addDoc } from "firebase/firestore";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { ref, getDownloadURL, uploadBytesResumable } from "firebase/storage";
 
 const useUploadMemes = () => {
@@ -45,7 +45,7 @@ const useUploadMemes = () => {
 			// attach upload observer
 			uploadTask.on("state_changed", (uploadTaskSnapshot) => {
 				//update progress
-				setUploadProgress(
+				setProgress(
 					Math.round(
 						(uploadTaskSnapshot.bytesTransferred /
 							uploadTaskSnapshot.totalBytes) *
@@ -56,8 +56,28 @@ const useUploadMemes = () => {
 			//when upload is completed
 			await uploadTask.then();
 
-			
+			//get download url to uploaded image
+			const url = await getDownloadURL(storageRef);
+
+			//create reference to adb-collectiom 'memes'
+			const collectionRef = collection(db, "memes");
+
+			//create document in db for the uploaded image
+			await addDoc(collectionRef, {
+				name: image.name,
+				path: storageRef.fullPath,
+				size: image.size,
+				type: image.type,
+				owner: currentUser.uid,
+				url,
+				created: serverTimestamp(),
+			});
+
+			setIsMutating(false);
+			setIsSuccess(true);
+			setProgress(null); //progress bar disappear
 		} catch (e) {
+			// console.log(`Error`, e);
 			setError(e.message);
 			setIsError(true);
 			setIsMutating(false);

@@ -49,6 +49,23 @@ const UploadPage = () => {
 					<p>Drop a funny meme here</p>
 				)}
 			</div>
+			{uploadMeme.progress !== null && (
+				<ProgressBar
+					now={uploadMeme.progress}
+					label={`${uploadMeme.progress}%`}
+					className="my-3"
+					animated
+					striped
+					variant="success"
+				/>
+			)}
+
+			{uploadMeme.error && (
+				<Alert variant="dangerous">Errror {uploadMeme.error}</Alert>
+			)}
+			{uploadMeme.isSuccess && (
+				<Alert variant="success">So funny meme!</Alert>
+			)}
 		</div>
 	);
 };
