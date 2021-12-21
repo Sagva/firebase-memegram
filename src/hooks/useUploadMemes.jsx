@@ -45,8 +45,8 @@ const useUploadMemes = () => {
         // attach upload observer
         uploadTask.on('state_changed', (uploadTaskSnapshot) => {
             //update progress
-            setUploadProgress(Math.round((uploadTaskSnapshot.bytesTransferred / uploadTaskSnapshot.totalBytes) * 100))
-        })
+            setUploadProgress(Math.round((uploadTaskSnapshot.bytesTransferred / uploadTaskSnapshot.totalBytes) * 1000) / 10)
+        }, (error) => {}, () => {})
 	};
 	return { error, isError, isMutating, isSuccess, progress, mutate };
 };
