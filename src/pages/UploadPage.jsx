@@ -2,7 +2,9 @@ import React, { useCallback } from "react";
 import { useDropzone } from "react-dropzone";
 import Alert from "react-bootstrap/Alert";
 import ProgressBar from "react-bootstrap/ProgressBar";
+import useUploadMemes from "../hooks/useUploadMemes";
 const UploadPage = () => {
+	const uploadMeme = useUploadMemes();
 	const onDrop = useCallback((acceptedFiles) => {
 		console.log(`Get me files`, acceptedFiles);
 
@@ -11,6 +13,7 @@ const UploadPage = () => {
 		}
 
 		//trigger upload of the first file
+		uploadMeme.mutate(acceptedFiles[0]);
 	}, []);
 
 	const {
