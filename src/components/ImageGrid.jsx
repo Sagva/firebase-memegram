@@ -1,11 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import Alert from "react-bootstrap/Alert";
 import Col from "react-bootstrap/Col";
 import Row from "react-bootstrap/Row";
 import BeatLoader from "react-spinners/BeatLoader";
 import ImageCard from "./ImageCard";
 
-const ImageGrid = ({ query }) => {
+
+const ImageGrid = ({ query, showDeleteButton }) => {
+	
+
 	if (query.isError) {
 		return (
 			<Alert variant="warning">
@@ -26,7 +29,10 @@ const ImageGrid = ({ query }) => {
 						key={image._id}
 						className="d-flex justify-content-center"
 					>
-						<ImageCard image={image} />
+						<ImageCard
+							image={image}
+							showDeleteButton={showDeleteButton}
+						/>
 					</Col>
 				))}
 		</Row>

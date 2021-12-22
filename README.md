@@ -5,9 +5,9 @@
 - ✔ Se alla uppladdade memes (inkl. mina egna)
 - ✔ Skapa konto
 - ✔ Ladda upp memes
-- Se enskild meme i en lightbox
+- ✔ Se enskild meme i en lightbox
+- ✔ Ta bort egna memes
 - Se mina uppladdade memes
-- Ta bort egna memes
 
 ### Framtida funktioner
 

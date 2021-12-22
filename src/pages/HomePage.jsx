@@ -11,7 +11,7 @@ const HomePage = () => {
 		<Container className="py-3">
 			<h1>Memes</h1>
 			<SRLWrapper>
-				<ImageGrid query={memesQuery} />
+				<ImageGrid query={memesQuery} showDeleteButton={false} />
 			</SRLWrapper>
 		</Container>
 	);
