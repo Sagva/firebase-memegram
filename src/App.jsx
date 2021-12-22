@@ -11,6 +11,7 @@ import PageNotFound from "./pages/PageNotFound";
 import SignupPage from "./pages/SignupPage";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
 import UploadPage from "./pages/UploadPage";
+import MyMemesPage from "./pages/MyMemesPage";
 
 function App() {
 	return (
@@ -47,6 +48,14 @@ function App() {
 						element={
 							<RequireAuth redirectTo="/login">
 								<UploadPage />
+							</RequireAuth>
+						}
+					/>
+					<Route
+						path="/my-memes"
+						element={
+							<RequireAuth redirectTo="/login">
+								<MyMemesPage />
 							</RequireAuth>
 						}
 					/>

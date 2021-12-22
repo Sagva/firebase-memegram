@@ -16,7 +16,7 @@ const Navigation = () => {
 					<span role="img" aria-label="A laughing crying face">
 						😂
 					</span>{" "}
-					memegram
+					Memegram
 				</Link>
 
 				<Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -43,6 +43,12 @@ const Navigation = () => {
 										className="dropdown-item"
 									>
 										Update Profile
+									</NavLink>
+									<NavLink
+										to="/my-memes"
+										className="dropdown-item"
+									>
+										My memes
 									</NavLink>
 									<NavDropdown.Divider />
 									<NavLink

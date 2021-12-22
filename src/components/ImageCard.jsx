@@ -1,3 +1,5 @@
+import { faTrashAlt } from "@fortawesome/free-regular-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";

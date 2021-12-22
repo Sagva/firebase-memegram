@@ -1,10 +1,11 @@
-import React from 'react'
-import ReactDOM from 'react-dom'
-import { BrowserRouter } from 'react-router-dom'
-import { QueryClient, QueryClientProvider } from 'react-query'
-import AuthContextProvider from './contexts/AuthContext'
-import App from './App'
-import './App.scss'
+import React from "react";
+import ReactDOM from "react-dom";
+import { BrowserRouter } from "react-router-dom";
+import { QueryClient, QueryClientProvider } from "react-query";
+import AuthContextProvider from "./contexts/AuthContext";
+import App from "./App";
+import "./App.scss";
+import SimpleReactLightbox from "simple-react-lightbox";
 
 const queryClient = new QueryClient({
 	defaultOptions: {
@@ -14,19 +15,19 @@ const queryClient = new QueryClient({
 			cacheTime: 1000 * 60 * 60 * 4, // 4 hours
 		},
 	},
-})
+});
 
 ReactDOM.render(
 	<React.StrictMode>
 		<QueryClientProvider client={queryClient}>
 			<BrowserRouter>
 				<AuthContextProvider>
-
-					<App />
-
+					<SimpleReactLightbox>
+						<App />
+					</SimpleReactLightbox>
 				</AuthContextProvider>
 			</BrowserRouter>
 		</QueryClientProvider>
 	</React.StrictMode>,
-	document.getElementById('root')
-)
+	document.getElementById("root")
+);
