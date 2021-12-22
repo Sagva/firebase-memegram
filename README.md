@@ -7,7 +7,7 @@
 - ✔ Ladda upp memes
 - ✔ Se enskild meme i en lightbox
 - ✔ Ta bort egna memes
-- Se mina uppladdade memes
+- ✔ Se mina uppladdade memes
 
 ### Framtida funktioner
 

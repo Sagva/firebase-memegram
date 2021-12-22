@@ -5,17 +5,14 @@ import { db } from "../firebase";
 
 const useOwnMemes = () => {
 	const { currentUser } = useAuthContext();
-	console.log(`currentUser`, currentUser);
 
 	// create ref to collection 'memes'
 	const ownMemesRef = query(
 		collection(db, "memes"),
 		where("owner", "==", currentUser.uid),
-		orderBy("created")
+		orderBy("created", "desc")
 	);
 
-	console.log(`ownMemesRef`, ownMemesRef);
-	
 	const ownMemesQuery = useFirestoreQueryData(
 		["memes"],
 		ownMemesRef,

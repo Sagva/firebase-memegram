@@ -1,7 +1,7 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import ImageGrid from "../components/ImageGrid";
-import useOwnMemes from "../hooks/useMemes";
+import useOwnMemes from "../hooks/useOwnMemes";
 import { SRLWrapper } from "simple-react-lightbox";
 
 const MyMemesPage = () => {
