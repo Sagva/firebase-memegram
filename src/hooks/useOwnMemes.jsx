@@ -14,7 +14,7 @@ const useOwnMemes = () => {
 	);
 
 	const ownMemesQuery = useFirestoreQueryData(
-		["memes"],
+		["ownMemes"],
 		ownMemesRef,
 		{
 			idField: "_id",

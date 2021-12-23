@@ -10,7 +10,7 @@ import SimpleReactLightbox from "simple-react-lightbox";
 const queryClient = new QueryClient({
 	defaultOptions: {
 		queries: {
-			refetchOnWindowFocus: false,
+			refetchOnWindowFocus: true,
 			staleTime: 1000 * 60 * 2, // 2 minutes
 			cacheTime: 1000 * 60 * 60 * 4, // 4 hours
 		},
