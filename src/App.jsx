@@ -12,6 +12,7 @@ import SignupPage from "./pages/SignupPage";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
 import UploadPage from "./pages/UploadPage";
 import MyMemesPage from "./pages/MyMemesPage";
+import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 
 function App() {
 	return (
@@ -25,6 +26,7 @@ function App() {
 					<Route path="/logout" element={<LogoutPage />} />
 					<Route path="/signup" element={<SignupPage />} />
 					<Route path="/" element={<HomePage />} />
+					<Route path="/forgot-password" element={<ForgotPasswordPage />} />
 
 					{/* Protected routes */}
 
