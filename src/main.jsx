@@ -4,7 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query";
 import AuthContextProvider from "./contexts/AuthContext";
 import App from "./App";
-import "./App.scss";
+import "./assets/scss/App.scss";
 import SimpleReactLightbox from "simple-react-lightbox";
 
 const queryClient = new QueryClient({
