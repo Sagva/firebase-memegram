@@ -1,17 +1,19 @@
 import React from "react";
 import { Container } from "react-bootstrap";
 import ImageGrid from "../components/ImageGrid";
-import useOwnMemes from "../hooks/useOwnMemes";
 import { SRLWrapper } from "simple-react-lightbox";
+import useMemes from "../hooks/useMemes";
 
 const MyMemesPage = () => {
-	const ownMemesQuery = useOwnMemes();
+	const memesQuery = useMemes({
+		fetchOnlyOwn: true,
+	});
 
 	return (
 		<Container className="py-3">
 			<h1>My Memes</h1>
 			<SRLWrapper>
-				<ImageGrid query={ownMemesQuery} showDeleteButton={true} />
+				<ImageGrid query={memesQuery} showDeleteButton={true} />
 			</SRLWrapper>
 		</Container>
 	);
