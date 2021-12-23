@@ -1,7 +1,7 @@
 import React from "react";
 import Container from "react-bootstrap/Container";
 import useMemes from "../hooks/useMemes";
-import { SRLWrapper } from "simple-react-lightbox";
+
 import MemesGrid from "../components/MemesGrid";
 
 const HomePage = () => {
@@ -9,10 +9,8 @@ const HomePage = () => {
 
 	return (
 		<Container className="py-3">
-			<h1>Memes</h1>
-			<SRLWrapper>
-				<MemesGrid query={memesQuery} />
-			</SRLWrapper>
+			<h1>All memes</h1>
+			<MemesGrid query={memesQuery} />
 		</Container>
 	);
 };

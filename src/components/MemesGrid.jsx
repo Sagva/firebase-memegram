@@ -4,6 +4,7 @@ import Masonry from "react-masonry-css";
 import { BeatLoader } from "react-spinners";
 import Card from "react-bootstrap/Card";
 import MemeCard from "./MemeCard";
+import { SRLWrapper } from "simple-react-lightbox";
 
 const mansoryBreakpoints = {
 	default: 4,
@@ -25,19 +26,21 @@ const MemesGrid = ({ query }) => {
 	};
 	return (
 		query.data && (
-			<Masonry
-				breakpointCols={mansoryBreakpoints}
-				className="memes-masonry"
-				columnClassName="memes-masonry-column"
-			>
-				{query.data.map((meme) => (
-					<MemeCard
-						key={meme.name}
-						meme={meme}
-						refetchQuery={refetchQuery}
-					/>
-				))}
-			</Masonry>
+			<SRLWrapper>
+				<Masonry
+					breakpointCols={mansoryBreakpoints}
+					className="memes-masonry"
+					columnClassName="memes-masonry-column"
+				>
+					{query.data.map((meme) => (
+						<MemeCard
+							key={meme.name}
+							meme={meme}
+							refetchQuery={refetchQuery}
+						/>
+					))}
+				</Masonry>
+			</SRLWrapper>
 		)
 	);
 };
