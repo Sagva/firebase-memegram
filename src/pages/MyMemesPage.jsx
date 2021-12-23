@@ -9,7 +9,7 @@ const MyMemesPage = () => {
 	});
 
 	return (
-		<Container className="py-3">
+		<Container className="py-3 heigh100">
 			<h1>My Memes</h1>
 
 			<MemesGrid query={memesQuery} />

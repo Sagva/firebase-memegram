@@ -28,7 +28,7 @@ const UploadPage = () => {
 		onDrop,
 	});
 	return (
-		<div>
+		<div className="heigh100vh">
 			<h1>Upload a New Meme</h1>
 			{/* Dropzone */}
 			<div

@@ -23,12 +23,9 @@ const MemeCard = ({ meme, refetchQuery }) => {
 		<Card
 			className={`meme-card ${deleteMeme.isMutating ? "mutating" : ""}`}
 		>
-			<Card.Header>
-				{/* <span className="image-filename" title={meme.name}>
-					{meme.name}
-				</span> */}
-				<div className="card-actions">
-					{meme.owner === currentUser?.uid && (
+			{meme.owner === currentUser?.uid && (
+				<Card.Header>
+					<div className="card-actions">
 						<Button
 							variant="danger"
 							size="sm"
@@ -37,15 +34,13 @@ const MemeCard = ({ meme, refetchQuery }) => {
 						>
 							<FontAwesomeIcon icon={faTrashAlt} />
 						</Button>
-					)}
-				</div>
-			</Card.Header>
+					</div>
+				</Card.Header>
+			)}
 
 			<a href={meme.url} target="_blank">
 				<Card.Img variant="top" src={meme.url} />
 			</a>
-
-			<Card.Body></Card.Body>
 		</Card>
 	);
 };
