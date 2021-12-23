@@ -27,3 +27,4 @@
   npm i @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome @fortawesome/free-brands-svg-icons @fortawesome/free-regular-svg-icons
 - React Query Firebase npm i react-query
 - React Query Firebase package npm i --save @react-query-firebase/firestore
+- React masonry component npm i react-masonry-css
