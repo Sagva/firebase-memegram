@@ -3,30 +3,33 @@ import { doc, deleteDoc } from "firebase/firestore";
 import { ref, deleteObject } from "firebase/storage";
 import { db, storage } from "../firebase";
 
-const useDeleteImage = (image) => {
+const useDeleteMeme = (meme) => {
 	const [isError, setIsError] = useState(false);
 	const [error, setError] = useState(null);
 	const [isMutating, setIsMutating] = useState(false);
 
 	const mutate = async () => {
+		setError(null);
+		setIsError(false);
 		setIsMutating(true);
 
-		// run mutation that will delete image from storage and db
+		// run mutation that will delete meme from storage and db
 		try {
-			// get ref to image in storage
-			const storageRef = ref(storage, image.path);
+			// get ref to meme in storage
+			const storageRef = ref(storage, meme.path);
 
-			// delete image from storage
+			// delete meme from storage
 			await deleteObject(storageRef);
 
-			// get ref to image in db
-			const dbRef = doc(db, "memes", image._id);
+			// get ref to meme in db
+			const dbRef = doc(db, "memes", meme._id);
 
-			// delete image from db
+			// delete meme from db
 			await deleteDoc(dbRef);
 		} catch (e) {
 			setIsError(true);
-			setError(e);
+			setError(e.message);
+		} finally {
 			setIsMutating(false);
 		}
 	};
@@ -39,4 +42,4 @@ const useDeleteImage = (image) => {
 	};
 };
 
-export default useDeleteImage;
+export default useDeleteMeme;

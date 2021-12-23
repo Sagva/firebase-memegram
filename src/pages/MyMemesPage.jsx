@@ -1,6 +1,5 @@
 import React from "react";
 import { Container } from "react-bootstrap";
-import ImageGrid from "../components/ImageGrid";
 import { SRLWrapper } from "simple-react-lightbox";
 import useMemes from "../hooks/useMemes";
 import MemesGrid from "../components/MemesGrid";
@@ -13,10 +12,9 @@ const MyMemesPage = () => {
 	return (
 		<Container className="py-3">
 			<h1>My Memes</h1>
-			<MemesGrid query={memesQuery} />
-			{/* <SRLWrapper>
-				<ImageGrid query={memesQuery} showDeleteButton={true} />
-			</SRLWrapper> */}
+			<SRLWrapper>
+				<MemesGrid query={memesQuery} />
+			</SRLWrapper>
 		</Container>
 	);
 };

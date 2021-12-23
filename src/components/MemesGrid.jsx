@@ -3,6 +3,7 @@ import Alert from "react-bootstrap/Alert";
 import Masonry from "react-masonry-css";
 import { BeatLoader } from "react-spinners";
 import Card from "react-bootstrap/Card";
+import MemeCard from "./MemeCard";
 
 const mansoryBreakpoints = {
 	default: 4,
@@ -19,6 +20,9 @@ const MemesGrid = ({ query }) => {
 	if (query.isLoading) {
 		return <BeatLoader color="#888" />;
 	}
+	const refetchQuery = () => {
+		query.refetch();
+	};
 	return (
 		query.data && (
 			<Masonry
@@ -27,11 +31,11 @@ const MemesGrid = ({ query }) => {
 				columnClassName="memes-masonry-column"
 			>
 				{query.data.map((meme) => (
-					<Card key={meme.name}>
-						<Card.Header> {meme.name}</Card.Header>
-						<Card.Img src={meme.url} title={meme._id} />
-						<Card.Footer>{meme.owner}</Card.Footer>
-					</Card>
+					<MemeCard
+						key={meme.name}
+						meme={meme}
+						refetchQuery={refetchQuery}
+					/>
 				))}
 			</Masonry>
 		)
