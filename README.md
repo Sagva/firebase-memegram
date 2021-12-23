@@ -9,22 +9,17 @@
 - ✔ Ta bort egna memes
 - ✔ Se mina uppladdade memes
 
-### Framtida funktioner
-
-- Like:a memes (som inloggad)
-
 ## Bibliotek
 
-- React Router npm i react-router-dom
-- React Dropzone npm install --save react-dropzone
-- Simple React Lightbox npm install --save simple-react-lightbox
+- React Router
+- React Dropzone
+- Simple React Lightbox
 - npm
-- Firebase Firestore npm install firebase
+- Firebase Firestore
 - Firebase Storage
-- (React Bootstrap) npm install react-bootstrap bootstrap@5.1.3
-- (React Spinners) npm install --save react-spinners
+- React Bootstrap
+- React Spinners
 - react-fontawesome
-  npm i @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome @fortawesome/free-brands-svg-icons @fortawesome/free-regular-svg-icons
-- React Query Firebase npm i react-query
-- React Query Firebase package npm i --save @react-query-firebase/firestore
-- React masonry component npm i react-masonry-css
+- React Query Firebase
+- React Query Firebase package
+- React masonry
