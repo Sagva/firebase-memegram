@@ -15,6 +15,8 @@ import MyMemesPage from "./pages/MyMemesPage";
 import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 
 function App() {
+	const ASSET_URL = import.meta.env.BASE_URL;
+	console.log(`ASSET_URL from APp`, ASSET_URL);
 	return (
 		<>
 			<Navigation />
@@ -22,16 +24,28 @@ function App() {
 			<Container id="App" className="py-3">
 				<Routes>
 					{/* Guest routes */}
-					<Route path="/login" element={<LoginPage />} />
-					<Route path="/logout" element={<LogoutPage />} />
-					<Route path="/signup" element={<SignupPage />} />
-					<Route path="/" element={<HomePage />} />
-					<Route path="/forgot-password" element={<ForgotPasswordPage />} />
+					<Route
+						path={`${ASSET_URL}/login`}
+						element={<LoginPage />}
+					/>
+					<Route
+						path={`${ASSET_URL}/logout`}
+						element={<LogoutPage />}
+					/>
+					<Route
+						path={`${ASSET_URL}/signup`}
+						element={<SignupPage />}
+					/>
+					<Route path={`${ASSET_URL}`} element={<HomePage />} />
+					<Route
+						path={`${ASSET_URL}/forgot-password`}
+						element={<ForgotPasswordPage />}
+					/>
 
 					{/* Protected routes */}
 
 					<Route
-						path="/update-profile"
+						path={`${ASSET_URL}/update-profile`}
 						element={
 							<RequireAuth redirectTo="/login">
 								<UpdateProfilePage />
@@ -39,7 +53,7 @@ function App() {
 						}
 					/>
 					<Route
-						path="/upload"
+						path={`${ASSET_URL}/upload`}
 						element={
 							<RequireAuth redirectTo="/login">
 								<UploadPage />
@@ -47,7 +61,7 @@ function App() {
 						}
 					/>
 					<Route
-						path="/my-memes"
+						path={`${ASSET_URL}/my-memes`}
 						element={
 							<RequireAuth redirectTo="/login">
 								<MyMemesPage />

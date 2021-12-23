@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useAuthContext } from "../contexts/AuthContext";
 
 const SignupPage = () => {
+	const ASSET_URL = import.meta.env.BASE_URL;
 	const emailRef = useRef();
 	const passwordRef = useRef();
 	const passwordConfirmRef = useRef();
@@ -26,7 +27,7 @@ const SignupPage = () => {
 		try {
 			setLoading(true);
 			await signup(emailRef.current.value, passwordRef.current.value);
-			navigate("/");
+			navigate(`${ASSET_URL}`);
 		} catch (e) {
 			setError(e.message);
 			setLoading(false);
@@ -82,18 +83,16 @@ const SignupPage = () => {
 							</Form>
 
 							<div className="text-center mt-3">
-								<Link to="/forgot-password">
+								<Link to={`${ASSET_URL}/forgot-password`}>
 									Forgot Password?
 								</Link>
 							</div>
 						</Card.Body>
 					</Card>
 
-					<div className="text-center mt-3 text-light">
+					<div className="text-center mt-3">
 						Already have an account?{" "}
-						<Link to="/login" className="text-light">
-							Log In
-						</Link>
+						<Link to={`${ASSET_URL}/login`}>Log In</Link>
 					</div>
 				</Col>
 			</Row>
