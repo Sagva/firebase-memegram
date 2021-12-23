@@ -46,26 +46,26 @@ const UploadPage = () => {
 						<p>That's no meme that we want here</p>
 					)
 				) : (
-					<p>Drop a funny meme here</p>
+					<p className="my-2">Drop a funny meme here</p>
+				)}
+				{uploadMeme.progress !== null && (
+					<ProgressBar
+						now={uploadMeme.progress}
+						label={`${uploadMeme.progress}%`}
+						className="my-3"
+						animated
+						striped
+						variant="success"
+					/>
+				)}
+
+				{uploadMeme.error && (
+					<Alert variant="dangerous">Errror {uploadMeme.error}</Alert>
+				)}
+				{uploadMeme.isSuccess && (
+					<Alert variant="success">That was a funny meme 🤩!</Alert>
 				)}
 			</div>
-			{uploadMeme.progress !== null && (
-				<ProgressBar
-					now={uploadMeme.progress}
-					label={`${uploadMeme.progress}%`}
-					className="my-3"
-					animated
-					striped
-					variant="success"
-				/>
-			)}
-
-			{uploadMeme.error && (
-				<Alert variant="dangerous">Errror {uploadMeme.error}</Alert>
-			)}
-			{uploadMeme.isSuccess && (
-				<Alert variant="success">So funny meme!</Alert>
-			)}
 		</div>
 	);
 };

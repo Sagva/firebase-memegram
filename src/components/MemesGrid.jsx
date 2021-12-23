@@ -13,7 +13,6 @@ const mansoryBreakpoints = {
 	992: 4,
 };
 const MemesGrid = ({ query }) => {
-	console.log(`query`, query);
 	if (query.isError) {
 		return <Alert variant="warning">{query.error}</Alert>;
 	}

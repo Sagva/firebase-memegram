@@ -9,7 +9,6 @@ import { useAuthContext } from "../../contexts/AuthContext";
 const Navigation = () => {
 	const ASSET_URL = import.meta.env.BASE_URL;
 	const { currentUser } = useAuthContext();
-	console.log(`ASSET_URL from Navigation`, ASSET_URL);
 
 	return (
 		<Navbar bg="dark" variant="dark" expand="md">

@@ -16,7 +16,7 @@ import ForgotPasswordPage from "./pages/ForgotPasswordPage";
 
 function App() {
 	const ASSET_URL = import.meta.env.BASE_URL;
-	console.log(`ASSET_URL from APp`, ASSET_URL);
+
 	return (
 		<>
 			<Navigation />
