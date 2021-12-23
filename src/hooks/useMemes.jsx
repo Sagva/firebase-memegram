@@ -7,7 +7,7 @@ const useMemes = (params = {}) => {
 	const { currentUser } = useAuthContext();
 
 	// create ref to collection 'memes'
-	const memesRef = params.fethOnlyOwn
+	const memesRef = params.fetchOnlyCurrentUser
 		? query(
 				collection(db, "memes"),
 				where("owner", "==", currentUser.uid),
@@ -15,7 +15,9 @@ const useMemes = (params = {}) => {
 		  )
 		: query(collection(db, "memes"), orderBy("created", "desc"));
 
-	const queryKey = params.fethOnlyOwn ? ["ownMemes"] : ["memes"];
+	const queryKey = params.fetchOnlyCurrentUser
+		? ["memes", currentUser.uid]
+		: ["memes"];
 
 	const memesQuery = useFirestoreQueryData(
 		queryKey, // query key
