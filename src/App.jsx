@@ -24,16 +24,9 @@ function App() {
 					<Route path="/login" element={<LoginPage />} />
 					<Route path="/logout" element={<LogoutPage />} />
 					<Route path="/signup" element={<SignupPage />} />
+					<Route path="/" element={<HomePage />} />
 
 					{/* Protected routes */}
-					<Route
-						path="/"
-						element={
-							<RequireAuth redirectTo="/login">
-								<HomePage />
-							</RequireAuth>
-						}
-					/>
 
 					<Route
 						path="/update-profile"

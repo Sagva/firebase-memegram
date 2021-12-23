@@ -28,7 +28,7 @@ const MemeCard = ({ meme, refetchQuery }) => {
 					{meme.name}
 				</span> */}
 				<div className="card-actions">
-					{meme.owner === currentUser.uid && (
+					{meme.owner === currentUser?.uid && (
 						<Button
 							variant="danger"
 							size="sm"
